@@ -83,4 +83,35 @@ forEach( allButtonsEl, function( DOMElement, index, theArray){
 
 // TASK 4 -- Add Guest to List
 
+var listEl= document.querySelectorAll(".answer-box")
+
+forEach( listEl, function( arrayElement, index, theArray){
+  arrayElement.addEventListener("click", function(evt){
+
+    var targetEvent=evt.target;
+    var currentTargetEvent= evt.currentTarget;
+
+    // console.log(currentTargetEvent +"current")
+    // console.log(targetEvent+ "target")
+    // console.log(targetEvent.innerHTML)
+
+    var goodListEl= document.querySelector(".good-standing-list")
+    var naughtyListEl= document.querySelector(".probation-list")
+
+    console.log(targetEvent.className)
+    if (targetEvent.className.indexOf("listy-eyed")>=0){
+      goodListEl.removeChild(targetEvent)
+      naughtyListEl.innerHTML+="<li>"+ targetEvent.innerHTML + "</li>"
+
+    } if (targetEvent.className.indexOf("bad")>=0){
+      naughtyListEl.removeChild(targetEvent)
+      goodListEl.innerHTML+="<li>" + targetEvent.innerHTML + "</li>"
+    }
+      // console.log ("Not working sad")
+
+  }
+)})
+
+
+
 // TASK 5 -- (Adventure Mode)-- Add + Remove Item From List
